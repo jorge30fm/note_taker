@@ -1,15 +1,33 @@
 const fs = require('fs');
 const {createNewNote, findById, deleteNote} =require('../lib/notes');
-const { notesArray} = require('../db/db.json');
+const notesArray = [
+  {
+    title: "Test1",
+    text: "Test1",
+    id: "1"
+  },
+  {
+    title: "Test2",
+    text: "Test2",
+    id: "2"
+  },
+  {
+    title: "Test3",
+    text: "Test3",
+    id: "3"
+  },
+]
+
 
 test('Creates a notes object', () => {
+        const testArray = notesArray
         const note = createNewNote(
                 {
                 title: 'test note Title',
                 text: 'test note text',
                 id: 'test ID'
                 },
-                notesArray
+                testArray
         );
         expect(note.title).toBe('test note Title');
         expect(note.text).toBe('test note text');
@@ -17,41 +35,15 @@ test('Creates a notes object', () => {
 });
 
 test('finds note by id', () => {
-        const startingNotes = [
-                {
-                  "title": "Test Title",
-                  "text": "Test text",
-                  "id": "0"
-                },
-                {
-                  "title": "Note1",
-                  "text": "note 1 text",
-                  "id": "1"
-                },
-                {
-                  "title": "note2",
-                  "text": "note 2text",
-                  "id": "2"
-                },
-                {
-                  "title": "test note Title",
-                  "text": "test note text",
-                  "id": "3"
-                },
-                {
-                  "title": "Test Title12222222222",
-                  "text": "Test text2",
-                  "id": "4"
-                }
-              ]
-        const result = findById('3', startingNotes);
-        expect(result.title).toBe('test note Title');
+        const testArray = notesArray
+        const result = findById('3', testArray);
+        expect(result.title).toBe('Test3');
 });
 
 test('deletes note object', () => {
-        const startingNotes = notesArray;
-        const startingNotesLenght = startingNotes.length;
-        const endingArrayLength = deleteNote(1, startingNotes)
+        const testArray = notesArray;
+        const testArrayLength = testArray.length;
+        const endingArrayLength = deleteNote('1', testArray);
 
-        expect(endingArrayLength).toEqual(startingNotesLenght - 1);
+        expect(endingArrayLength).toEqual(testArrayLength - 1);
 })

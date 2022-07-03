@@ -1,38 +1,44 @@
 const router = require('express').Router();
+const uuid = require('uuid');
 
-const {createNewNote, findById, updateNote} = require('../../lib/notes');
+const {createNewNote, findById, updateNote, deleteNote} = require('../../lib/notes');
 const {notesArray} = require('../../db/db.json');
 
 //GET ALL notes
 router.get('/notes', (req, res) => {
         let results = notesArray;
+        if (!results) {
+                res.send(404);
+        }
         res.json(results);
 });
 
 //GET ONE note
 router.get('/notes/:id', (req, res) => {
-        let results = findById(req.params.id, notesArray);
-        if (results) {
-                res.json(results);
-        } else {
+        let result = findById(req.params.id, notesArray);
+        if (!result) {
                 res.send(404);
         }
+        res.json(result);
 });
 
 //POST a note
 router.post('/notes', (req, res) => {
-        req.body.id = notesArray.length.toString();
+        //generates a unique id
+        req.body.id = uuid.v4();
         const note = createNewNote(req.body, notesArray);
         notesArray.push(req.body);
         res.json(note)
 });
 
-router.put('/notes/:id', (req, res) =>{
-})
-//UPDATE a note
-
-
 //DELETE a note
+router.delete('/notes/:id', (req, res) =>{
+        const result = deleteNote(req.params.id, notesArray)
+        if (!result) {
+                res.send(404)
+        }
+        res.send(notesArray);
+})
 
 
 module.exports = router;
