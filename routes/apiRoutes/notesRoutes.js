@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const uuid = require('uuid');
-
-const {createNewNote, findById, updateNote, deleteNote} = require('../../lib/notes');
+const {createNewNote, findById, deleteNote} = require('../../lib/notes');
 const {notesArray} = require('../../db/db.json');
 
 //GET ALL notes

@@ -1,34 +1,19 @@
 {
   "notesArray": [
     {
-      "title": "Test2",
-      "text": "Test2",
-      "id": "2"
+      "title": "Note 1",
+      "text": "Note 1 text here",
+      "id": "94e3f24c-794d-4d5a-877b-ed6c840cbcf1"
     },
     {
-      "title": "Test3",
-      "text": "Test3",
-      "id": "3"
+      "title": "Note 2",
+      "text": "note 2 text here",
+      "id": "f6c94e3b-5c6e-48d8-a75c-d0c2b7d6be37"
     },
     {
-      "title": "test note Title",
-      "text": "test note text",
-      "id": "test ID"
-    },
-    {
-      "title": "Test Title12222222222",
-      "text": "Test text2",
-      "id": "08e880de-718c-4b34-9989-2722d8cbb5d7"
-    },
-    {
-      "title": "Test Title12222222222",
-      "text": "Test text2",
-      "id": "08e880de-718c-4b34-9989-2722d8cbb5d7"
-    },
-    {
-      "title": "Test Title12222222222",
-      "text": "Test text2",
-      "id": "caf9b0ac-51c9-4acc-afa8-de908ab31371"
+      "title": "note 3",
+      "text": "note 3 text here",
+      "id": "78c472b0-bb0a-40d7-89d7-84506a589d5d"
     }
   ]
 }
